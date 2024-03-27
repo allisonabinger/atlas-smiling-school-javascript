@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "holberton_school-icon";
+  font-family: "atlas_school-icon";
   src: url("fonts/holberton_school-icon.eot?sq4eq4");
   src: url("fonts/holberton_school-icon.eot?sq4eq4#iefix")
       format("embedded-opentype"),
@@ -12,10 +12,10 @@
   font-display: block;
 }
 
-[class^="holberton_school-icon-"],
-[class*=" holberton_school-icon-"] {
+[class^="atlas_school-icon-"],
+[class*=" atlas_school-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "holberton_school-icon" !important;
+  font-family: "atlas_school-icon" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -28,66 +28,66 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.holberton_school-icon-arrow_1:before {
+.atlas_school-icon-arrow_1:before {
   content: "\e900";
 }
-.holberton_school-icon-arrow_2:before {
+.atlas_school-icon-arrow_2:before {
   content: "\e901";
 }
-.holberton_school-icon-arrow_3:before {
+.atlas_school-icon-arrow_3:before {
   content: "\e902";
 }
-.holberton_school-icon-arrow_4:before {
+.atlas_school-icon-arrow_4:before {
   content: "\e903";
 }
-.holberton_school-icon-arrow_5:before {
+.atlas_school-icon-arrow_5:before {
   content: "\e904";
 }
-.holberton_school-icon-check:before {
+.atlas_school-icon-check:before {
   content: "\e905";
 }
-.holberton_school-icon-ic_bag:before {
+.atlas_school-icon-ic_bag:before {
   content: "\e906";
 }
-.holberton_school-icon-ic_cart:before {
+.atlas_school-icon-ic_cart:before {
   content: "\e907";
 }
-.holberton_school-icon-ic_facebook:before {
+.atlas_school-icon-ic_facebook:before {
   content: "\e908";
 }
-.holberton_school-icon-ic_hearing:before {
+.atlas_school-icon-ic_hearing:before {
   content: "\e909";
 }
-.holberton_school-icon-ic_instagram:before {
+.atlas_school-icon-ic_instagram:before {
   content: "\e90a";
 }
-.holberton_school-icon-ic_laptop:before {
+.atlas_school-icon-ic_laptop:before {
   content: "\e90b";
 }
-.holberton_school-icon-ic_money:before {
+.atlas_school-icon-ic_money:before {
   content: "\e90c";
 }
-.holberton_school-icon-ic_music:before {
+.atlas_school-icon-ic_music:before {
   content: "\e90d";
 }
-.holberton_school-icon-ic_sound:before {
+.atlas_school-icon-ic_sound:before {
   content: "\e90e";
 }
-.holberton_school-icon-ic_twitter:before {
+.atlas_school-icon-ic_twitter:before {
   content: "\e90f";
 }
-.holberton_school-icon-ic_video:before {
+.atlas_school-icon-ic_video:before {
   content: "\e910";
 }
-.holberton_school-icon-menu:before {
+.atlas_school-icon-menu:before {
   content: "\e911";
 }
-.holberton_school-icon-search_1:before {
+.atlas_school-icon-search_1:before {
   content: "\e912";
 }
-.holberton_school-icon-search_2:before {
+.atlas_school-icon-search_2:before {
   content: "\e913";
 }
-.holberton_school-icon-star:before {
+.atlas_school-icon-star:before {
   content: "\e914";
 }
