@@ -376,11 +376,11 @@
     --popular-arrows-x: -3vw;
   }
   .section .card-img-overlay {
-    /* top: 25px; */
-    /* top: 4%; */
+    top: 25px;
+    top: 4%;
   }
   .section .card-img-overlay img {
-    /* width: 35%; */
+    width: 35%;
   }
 	.popular .card {
 		/* margin: 15px; */
