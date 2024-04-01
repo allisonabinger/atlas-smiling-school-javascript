@@ -47,25 +47,25 @@ $(document).ready(function(){
 
 // Videos Carousel 
 
-	// Stars function
-		function generateStars(rating) {
-			var starsHTML = '';
-			for (var i = 0; i < 5; i++) {
-				if (i < rating) {
-					starsHTML += '<img class="rating" src="images/star_on.png" alt="star on" width="15px"/>'
-				} else {
-					starsHTML += '<img class="rating" src="images/star_off.png" alt="star on" width="15px"/>'
-				}
+	// GenerateStars Helper function
+	function generateStars(rating) {
+		var starsHTML = '';
+		for (var i = 0; i < 5; i++) {
+			if (i < rating) {
+				starsHTML += '<img class="rating" src="images/star_on.png" alt="star on" width="15px"/>'
+			} else {
+				starsHTML += '<img class="rating" src="images/star_off.png" alt="star on" width="15px"/>'
 			}
-			return starsHTML;
 		}
+		return starsHTML;
+	}
 
-	// Slick + Ajax Request
+	// Most Popular Tutorials API + Slick
 	$(document).ready(function (){
 
 		$('#loader-popular').removeClass('d-none');
 
-		$('.slick-carousel').slick({
+		$('.popular .slick-carousel').slick({
 			slidesToShow: 4,
 			slidesToScroll: 1,
 			autoplay: true,
@@ -127,10 +127,10 @@ $(document).ready(function(){
 						</div>
 					`;
 
-					$('.slick-carousel').append(cardHTML);
+					$('.popular .slick-carousel').append(cardHTML);
 				});
 				
-				$('.slick-carousel').slick('unslick').slick({
+				$('.popular .slick-carousel').slick('unslick').slick({
 					slidesToShow: 4,
 					slidesToScroll: 1,
 					autoplay: true,
@@ -158,8 +158,116 @@ $(document).ready(function(){
 			},
 			error: function(xhr, status, error) {
 				console.error('Error:', error);
+				console.log('Most popular Error');
 				$('#loader-popular').addClass('d-none');
 			}
 		});
 
+		////////////// Latest Videos
+
+		$('#loader-latest').removeClass('d-none');
+
+		$('.slick-carousel-latest').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 3000,
+			dots: false,
+			infinite: true,
+			prevArrow: `<a class="carousel-control-prev arrow-left" href="#" role="button" data-slide="prev"><img src="images/arrow_black_left.png" alt="Quote Previous" aria-hidden="true"/><span class="sr-only">Previous</span></a>`,
+			nextArrow: '<a class="carousel-control-next arrow-right" href="#" role="button" aria-label="Next"><img src="images/arrow_black_right.png" alt="Quote Next" aria-hidden="true"><span class="sr-only">Next</span></a>',
+			responsive: [
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1
+					},
+				},
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 2
+					},
+				},
+			]
+		});
+
+		$.ajax({
+			url: 'https://smileschool-api.hbtn.info/latest-videos',
+			method: 'GET',
+			success: function(response) {
+				
+				$('#loader-latest').addClass('d-none');
+				
+				$.each(response, function(index, card) {
+					var starsHTML = generateStars(card.star);
+					var subTitle = card['sub-title'];
+					var cardHTML = `
+						<div class="slick-slide"
+							<div class="card">
+							<img src="${card.thumb_url}" class="card-img-top" alt="Video thumbnail"/>
+							<div class="card-img-overlay text-center">
+								<img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay"/>
+							</div>
+							<div class="card-body">
+								<h5 class="card-title font-weight-bold">
+									${card.title}
+								</h5>
+								<p class="card-text text-muted">
+									${subTitle}
+								</p>
+								<div class="creator d-flex align-items-center">
+									<img src="${card.author_pic_url}" alt="Creator of Video" width="30px" class="rounded-circle"/>
+									<h6 class="pl-3 m-0 main-color">${card.author}</h6>
+								</div>
+								<div class="info row pt-3 justify-content-between">
+									<div class="rating">
+										${starsHTML}
+									</div>
+									<span class="main-color">${card.duration}</span>
+								</div>
+							</div>
+						</div>
+					`;
+
+					$('.slick-carousel-latest').append(cardHTML);
+				});
+				
+				$('.slick-carousel-latest').slick('unslick').slick({
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					autoplay: false,
+					autoplaySpeed: 3000,
+					dots: false,
+					infinite: true,
+					prevArrow: `<a class="carousel-control-prev arrow-left" href="#" role="button" data-slide="prev"><img src="images/arrow_black_left.png" alt="Quote Previous" aria-hidden="true"/><span class="sr-only">Previous</span></a>`,
+					nextArrow: '<a class="carousel-control-next arrow-right" href="#" role="button" aria-label="Next"><img src="images/arrow_black_right.png" alt="Quote Next" aria-hidden="true"><span class="sr-only">Next</span></a>',
+					responsive: [
+						{
+							breakpoint: 768,
+							settings: {
+								slidesToShow: 1
+							},
+						},
+						{
+							breakpoint: 992,
+							settings: {
+								slidesToShow: 2
+							},
+						},
+					]
+				});
+				
+			},
+			error: function(xhr, status, error) {
+				console.error('Error:', error);
+				console.log('Latest Error');
+				$('#loader-latest').addClass('d-none');
+			}
+		});
+
 	});
+
+
+
+	// Latest Videos API + Slick
