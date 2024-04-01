@@ -315,10 +315,12 @@
 .section .card {
   border: 0;
   width: 16rem;
+	margin: 1rem;
 }
 
-.popular .card {
+.popular .slick-slide {
   padding-bottom: 87px;
+	/* margin: 20px; */
 }
 
 .section .card-img-overlay {
@@ -356,6 +358,9 @@
   .section .card {
     width: 19vw;
   }
+	.popular .slick-slide {
+		margin: 15px;
+	}
 }
 
 @media screen and (max-width: 1150px) {
@@ -364,11 +369,14 @@
   }
   .section .card-img-overlay {
     /* top: 25px; */
-    top: 4%;
+    /* top: 4%; */
   }
   .section .card-img-overlay img {
-    width: 35%;
+    /* width: 35%; */
   }
+	.popular .card {
+		/* margin: 15px; */
+	}
 }
 
 @media screen and (max-width: 991px) {
@@ -376,15 +384,20 @@
     --popular-arrows-x: -3vw;
   }
 
+	.popular .section-header {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
   .section .card {
     width: 16rem;
   }
   .section .card-img-overlay img {
-    width: 30%;
+    /* width: 30%; */
   }
   .section .card-img-overlay {
     /* top: 25px; */
-    top: 5%;
+    /* top: 5%; */
   }
 }
 
@@ -392,9 +405,18 @@
   :root {
     --popular-arrows-x: -6vw;
   }
-  .section .card {
-    width: 16rem;
-  }
+
+	.popular .slick-slide {
+		padding: 0px 20px 5px 20px;
+	}
+	.popular .card {
+		border: 0;
+		width: auto;
+		margin: 1rem;
+	}
+	.popular .card {
+		margin: 15px;
+	}
 }
 
 @media screen and (max-width: 575px) {
@@ -406,8 +428,11 @@
   }
   .section .card-img-overlay {
     /* top: 25px; */
-    top: 5%;
+    /* top: 5%; */
   }
+	.popular .card {
+		/* margin: 15px; */
+	}
 }
 
 /* SMILES Section  */

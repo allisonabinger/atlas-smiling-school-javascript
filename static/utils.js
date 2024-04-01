@@ -49,25 +49,25 @@ $(document).ready(function (){
 	$('.slick-carousel').slick({
 		slidesToShow: 4,
 		slidesToScroll: 1,
-		autoplay: true,
+		autoplay: false,
 		autoplaySpeed: 3000,
 		dots: false,
 		infinite: true,
 		prevArrow: `<a class="carousel-control-prev arrow-left" href="#" role="button" data-slide="prev"><img src="images/arrow_black_left.png" alt="Quote Previous" aria-hidden="true"/><span class="sr-only">Previous</span></a>`,
 		nextArrow: '<a class="carousel-control-next arrow-right" href="#" role="button" aria-label="Next"><img src="images/arrow_black_right.png" alt="Quote Next" aria-hidden="true"><span class="sr-only">Next</span></a>',
-		response: [
+		responsive: [
 			{
 				breakpoint: 768,
 				settings: {
-					slidesToShow: 2
-				}
+					slidesToShow: 1
+				},
 			},
 			{
 				breakpoint: 992,
 				settings: {
-					slidesToShow: 3
-				}
-			}
+					slidesToShow: 2
+				},
+			},
 		]
 	});
 });
