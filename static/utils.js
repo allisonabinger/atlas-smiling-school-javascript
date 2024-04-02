@@ -167,7 +167,7 @@ $(document).ready(function(){
 		$('.slick-carousel-latest').slick({
 			slidesToShow: 4,
 			slidesToScroll: 1,
-			autoplay: false,
+			autoplay: true,
 			autoplaySpeed: 3000,
 			dots: false,
 			infinite: true,
@@ -230,7 +230,7 @@ $(document).ready(function(){
 				$('.slick-carousel-latest').slick('unslick').slick({
 					slidesToShow: 4,
 					slidesToScroll: 1,
-					autoplay: false,
+					autoplay: true,
 					autoplaySpeed: 3000,
 					dots: false,
 					infinite: true,
