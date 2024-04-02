@@ -103,9 +103,6 @@ $(document).ready(function(){
 						<div class="slick-slide"
 							<div class="card">
 							<img src="${card.thumb_url}" class="card-img-top" alt="Video thumbnail"/>
-							<div class="card-img-overlay text-center">
-								<img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay"/>
-							</div>
 							<div class="card-body">
 								<h5 class="card-title font-weight-bold">
 									${card.title}
@@ -206,9 +203,6 @@ $(document).ready(function(){
 						<div class="slick-slide"
 							<div class="card">
 							<img src="${card.thumb_url}" class="card-img-top" alt="Video thumbnail"/>
-							<div class="card-img-overlay text-center">
-								<img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay"/>
-							</div>
 							<div class="card-body">
 								<h5 class="card-title font-weight-bold">
 									${card.title}
