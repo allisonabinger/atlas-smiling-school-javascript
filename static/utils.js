@@ -264,4 +264,105 @@ $(document).ready(function(){
 
 
 
-	// Latest Videos API + Slick
+	// Courses JS /////////////////////////////
+
+// 	<div class="col-12 col-sm-4 col-lg-3 d-flex justify-content-center">
+// 	<div class="card">
+// 		<img src="images/thumbnail_4.jpg" class="card-img-top" alt="Video thumbnail"/>
+// 		<div class="card-img-overlay text-center">
+// 			<img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay"/>
+// 		</div>
+// 		<div class="card-body">
+// 			<h5 class="card-title font-weight-bold">Diagonal Smile</h5>
+// 			<p class="card-text text-muted">
+// 				Lorem ipsum dolor sit amet, consect adipiscing elit, sed do
+// 				eiusmod.
+// 			</p>
+// 			<div class="creator d-flex align-items-center">
+// 				<img src="images/profile_1.jpg" alt="Creator of Video" width="30px" class="rounded-circle"/>
+// 				<h6 class="pl-3 m-0 main-color">Phillip Massey</h6>
+// 			</div>
+// 			<div class="info pt-3 d-flex justify-content-between">
+// 				<div class="rating">
+// 				</div>
+// 				<span class="main-color">8 min</span>
+// 			</div>
+// 		</div>
+// 	</div>
+// </div>
+
+$(document).ready(function() {
+
+	$('#loader-results').removeClass('d-none');
+
+	function loadVideoCards() {
+		// Event listeners
+
+		var searchValue = $('#search-input').val();
+		var topicValue = $('#topic-dropdown').val();
+		var sortByValue = $('#sort-dropdown').val();
+
+		// jquery request
+		$.ajax({
+			url: 'https://smileschool-api.hbtn.info/courses',
+			method: 'GET',
+			data: {
+				q: searchValue,
+				topic: topicValue,
+				sort: sortByValue
+			},
+			success: function (response) {
+				$('#loader-results').addClass('d-none');
+				console.log('api success')
+				// call to create cards
+				renderVideoCards(response.courses)
+			},
+			error: function (xhr, status, error) {
+				$('#loader-results').addClass('d-none');
+				console.log('Error in jQuery request to API');
+				console.error('Error:', error);
+			}
+		});
+	}
+
+	// renders (makes) the video cards
+	function renderVideoCards(courses) {
+		var container = $('video-card-container');
+		container.empty();
+
+		$.each(courses, function (index, course) {
+			var starsHTML = generateStars(course.star);
+			var cardHTML = `
+				<div class="col-12 col-sm-4 col-lg-3 d-flex justify-content-center">
+					<div class="card">
+						<img src="${course.thumb_url}" class="card-img-top" alt="Video thumbnail"/>
+						<div class="card-img-overlay text-center">
+								<img src="images/play.png" alt="Play" width="64px" class="align-self-center play-overlay"/>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title font-weight-bold">${course.title}</h5>
+							<p class="card-text text-muted">${course['sub-title']}</p>
+							<div class="creator d-flex align-items-center">
+									<img src="${course.author_pic_url}" alt="Creator of Video" width="30px" class="rounded-circle"/>
+									<h6 class="pl-3 m-0 main-color">${course.author}</h6>
+							</div>
+							<div class="info pt-3 d-flex justify-content-between">
+								<div class="rating">
+								</div>
+								<span class="main-color">${course.duration}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+			container.append(cardHTML);
+		});
+	}
+
+	// Event Handlers
+	$('#search-input, #topic-dropdown, #sort-dropdown').on('change keyup', function () {
+		loadVideoCards();
+	});
+
+	loadVideoCards();
+})
