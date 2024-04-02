@@ -327,10 +327,11 @@ $(document).ready(function() {
 
 	// renders (makes) the video cards
 	function renderVideoCards(courses) {
-		var container = $('video-card-container');
+		var container = $('#video-card-container');
 		container.empty();
 
 		$.each(courses, function (index, course) {
+			console.log('render success')
 			var starsHTML = generateStars(course.star);
 			var cardHTML = `
 				<div class="col-12 col-sm-4 col-lg-3 d-flex justify-content-center">
