@@ -882,7 +882,7 @@
 }
 
 .search .dropdown .btn span {
-  color: var(--color-white);
+  color: var(--color-white) !important;
   font-weight: 300;
   font-size: 23px;
 }
@@ -905,6 +905,11 @@
 .search .dropdown-menu .dropdown-item:hover {
   color: var(--main-color);
   background-color: white;
+}
+
+.search .dropdown-menu .dropdown-item.active {
+	color: var(--color-white);
+	background-color: var(--main-color);
 }
 
 @media screen and (max-width: 575px) {

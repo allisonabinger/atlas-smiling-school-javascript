@@ -42,6 +42,16 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Slick -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   </head>
   <body class="body">
     <header class="header courses-header">
@@ -154,9 +164,9 @@
                   class="dropdown-menu mt-0"
                   aria-labelledby="dropdownMenuLink"
                 >
-                  <a class="dropdown-item" href="#">Novice</a>
-                  <a class="dropdown-item" href="#">Intermediate</a>
-                  <a class="dropdown-item" href="#">Expert</a>
+                  <a class="dropdown-item" id="novice" href="#">Novice</a>
+                  <a class="dropdown-item" id="intermediate" href="#">Intermediate</a>
+                  <a class="dropdown-item" id="expert" href="#">Expert</a>
                 </div>
               </div>
             </div>
@@ -181,9 +191,9 @@
                   class="dropdown-menu mt-0"
                   aria-labelledby="dropdownMenuLink"
                 >
-                  <a class="dropdown-item" href="#">Most Popular</a>
-                  <a class="dropdown-item" href="#">Most Recent</a>
-                  <a class="dropdown-item" href="#">Most Viewed</a>
+                  <a class="dropdown-item" href="#" id="most_popular">Most Popular</a>
+                  <a class="dropdown-item" href="#" id="most_recent">Most Recent</a>
+                  <a class="dropdown-item" href="#" id="most_viewed">Most Viewed</a>
                 </div>
               </div>
             </div>
@@ -267,5 +277,7 @@
         </div>
       </div>
     </footer>
+		<!-- Link to External JavaScript File (Custom) -->
+		<script src="static/utils.js"></script>	
   </body>
 </html>

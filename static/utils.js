@@ -295,12 +295,12 @@ $(document).ready(function() {
 
 	$('#loader-results').removeClass('d-none');
 
-	function loadVideoCards() {
+	function loadVideoCards(searchValue = '', topicValue = '', sortByValue = '') {
 		// Event listeners
 
-		var searchValue = $('#search-input').val();
-		var topicValue = $('#topic-dropdown').val();
-		var sortByValue = $('#sort-dropdown').val();
+		// var searchValue = $('#search-input').val();
+		// var topicValue = $('#topic-dropdown').val();
+		// var sortByValue = $('#sort-dropdown').val();
 
 		// jquery request
 		$.ajax({
@@ -361,9 +361,33 @@ $(document).ready(function() {
 	}
 
 	// Event Handlers
-	$('#search-input, #topic-dropdown, #sort-dropdown').on('change keyup', function () {
-		loadVideoCards();
+
+	$('#search-input').on('keyup', function (event) {
+		if (event.keyCode === 13) {
+			var searchValue = $(this).val();
+			console.log(searchValue);
+			loadVideoCards(searchValue);
+		}
+	});
+
+	$('#topic-dropdown').click(function () {
+		console.log('topic clicked');
+		var topicValue = $(this).data('topic');
+		console.log(`topic selected: ${topicValue}`);
+		
+		loadVideoCards('', topicValue);
+	});
+
+	$('#sort-dropdown').on('change', function () {
+		var sortByValue = $(this).val();
+		loadVideoCards('', '', sortByValue);
+	});
+
+	$('.dropdown-menu').on('click', '.dropdown-item', function() {
+		var dropdown = $(this).closest('.dropdown');
+		var selectedText = $(this).text();
+		dropdown.find('span').text(selectedText);
 	});
 
 	loadVideoCards();
-})
+});
